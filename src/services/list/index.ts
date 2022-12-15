@@ -18,8 +18,8 @@ export const getPokemons = async (limit: number, offset: number) => {
       type: SET_ERROR,
       payload: {
         isError: true,
-        messgae: error?.response?.data?.message || error.message,
-        code: error?.response?.data?.code || error.code,
+        message: error?.message,
+        code: error?.code,
       },
     });
   }

@@ -4,4 +4,5 @@ export const colors = {
   lightColor: 'yellow',
   mainColor: 'gold',
   darkColor: '#AA6C39',
+  red: 'red',
 };

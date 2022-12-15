@@ -9,9 +9,12 @@ import {
 import {getPokemons} from '../../services/list';
 import {useSelector} from 'react-redux';
 import {RootState, store} from '../../store';
-import {result, SET_PAGE} from '../../store/list';
+import {SET_PAGE} from '../../store/list';
 import {Card} from '../../components/card';
 import {colors} from '../../theme';
+import {result} from '../../types';
+import Error from '../../components/error';
+import Loader from '../../components/loader';
 
 export const List = () => {
   const {listResults, isFetching, error, page} = useSelector(
@@ -22,7 +25,11 @@ export const List = () => {
     getPokemons(pageSize, (page - 1) * pageSize);
   }, [page]);
   if (isFetching && listResults.length <= 0) {
-    return <ActivityIndicator />;
+    return <Loader />;
+  }
+
+  if (error.isError) {
+    return <Error error={error} />;
   }
 
   return (

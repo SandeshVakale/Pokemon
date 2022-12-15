@@ -1,20 +1,10 @@
 import {createAction, createReducer} from '@reduxjs/toolkit';
+import {errorType, result} from '../../types';
 import {OfficialArtwork} from '../../utils/officialArtwork';
 export const SET_LIST = 'SET_LIST';
 export const SET_PAGE = 'SET_PAGE';
 export const SET_FETCHING = 'SET_FETCHING';
 export const SET_ERROR = 'SET_ERROR';
-
-export interface result {
-  name: string;
-  url: string;
-}
-
-interface errorType {
-  isError: boolean;
-  message: string;
-  code: string;
-}
 
 interface listStateTypes {
   listResults: result[];
