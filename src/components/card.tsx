@@ -6,12 +6,21 @@ import {ColorModifier} from '../utils/colorModifier';
 import {typography} from '../theme';
 import {GetSpeciesDetails} from '../utils/getSpecies';
 
-const CardMemo = ({index, pokemon}: {index: number; pokemon: result}) => {
+const CardMemo = ({
+  index,
+  pokemon,
+  isColored = false,
+}: {
+  index: number;
+  pokemon: result;
+  isColored: boolean;
+}) => {
   const {h6, h7} = typography;
 
   const [species, setSpecies] = useState<any>(null);
   useEffect(() => {
-    GetSpeciesDetails(pokemon.name)?.then(data => setSpecies(data.data));
+    isColored &&
+      GetSpeciesDetails(pokemon.name)?.then(data => setSpecies(data.data));
   });
 
   const {lightColor, darkColor, mainColor} = ColorModifier(
@@ -33,7 +42,9 @@ const CardMemo = ({index, pokemon}: {index: number; pokemon: result}) => {
       />
       <Text style={[h6, styles.text]}>{pokemon.name.toLocaleUpperCase()}</Text>
       {species?.shape && (
-        <Text style={[h7, styles.textSubtitle]}>{species.shape.name}</Text>
+        <View style={[styles.subtitleContainer, {backgroundColor: darkColor}]}>
+          <Text style={[h7, styles.textSubtitle]}>{species.shape.name}</Text>
+        </View>
       )}
     </LinearGradient>
   );
@@ -81,7 +92,13 @@ const styles = StyleSheet.create({
   },
   textSubtitle: {
     color: 'white',
+  },
+  subtitleContainer: {
     padding: 5,
+    paddingHorizontal: 10,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   circle: {
     height: 120,

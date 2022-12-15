@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {FlatList, ActivityIndicator, View, StyleSheet} from 'react-native';
+import {FlatList, ActivityIndicator, View, StyleSheet, Dimensions} from 'react-native';
 import {getPokemons} from '../../services/list';
 import {useSelector} from 'react-redux';
 import {RootState, store} from '../../store';
@@ -27,10 +27,10 @@ export const List = () => {
         data={listResults}
         numColumns={2}
         renderItem={({item, index}: {item: result; index: number}) => (
-          <Card index={index} pokemon={item} />
+          <Card index={index} pokemon={item} isColored />
         )}
         refreshing={isFetching}
-        onEndReachedThreshold={0.4}
+        onEndReachedThreshold={0.9}
         onEndReached={() =>
           store.dispatch({
             type: SET_PAGE,
@@ -39,7 +39,7 @@ export const List = () => {
         }
         ListFooterComponent={
           isFetching ? (
-            <ActivityIndicator style={styles.listContainer} />
+            <ActivityIndicator style={styles.activtyContainer} />
           ) : (
             <View />
           )
@@ -52,4 +52,9 @@ export const List = () => {
 const styles = StyleSheet.create({
   container: {flex: 1, backgroundColor: '#fff'},
   listContainer: {alignSelf: 'center'},
+  activtyContainer: {
+    alignSelf: 'center',
+    height: 200,
+    width: Dimensions.get('screen').width,
+  },
 });

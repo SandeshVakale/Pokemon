@@ -5,16 +5,18 @@ import {Card} from '../src/components/card';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', async () => {
-  const tree = 
-    renderer.create(
+  const tree = renderer
+    .create(
       <Card
         index={1}
         pokemon={{
           name: 'Sandesh',
           url: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
         }}
+        isColored={false}
       />,
-    ).toJSON();
+    )
+    .toJSON();
 
-    expect(tree).toMatchSnapshot();
+  expect(tree).toMatchSnapshot();
 });

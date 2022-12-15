@@ -56,7 +56,7 @@ exports[`renders correctly 1`] = `
           "width": 120,
         },
         Object {
-          "backgroundColor": "#1a1a1a",
+          "backgroundColor": "yellow",
         },
       ]
     }
