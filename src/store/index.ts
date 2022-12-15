@@ -12,17 +12,17 @@ import {
 } from 'redux-persist';
 import {configureStore} from '@reduxjs/toolkit';
 
-import {themeModeModel} from './theme';
+import {listModel} from './list';
 
 const reducers = combineReducers({
-  themeModeModel,
+  listModel,
 });
 
 export type RootState = ReturnType<typeof reducers>;
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  blacklist: [],
+  blacklist: ['listModel'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

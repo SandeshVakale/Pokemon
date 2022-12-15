@@ -1,7 +1,8 @@
 import axios from 'axios';
+import {API_URL} from '../constants';
 
 export const api = axios.create({
-  baseURL: 'https://pokeapi.co/api/v2/',
+  baseURL: API_URL,
   // here are some default headers
   headers: {
     'Cache-Control': 'no-cache',
