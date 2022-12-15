@@ -20,6 +20,6 @@ jest.mock('redux-persist', () => {
 
 it('renders correctly', async () => {
   await act(async () => {
-    renderer.create(<App />);
+    renderer.create(<App />).toJSON();
   });
 });
