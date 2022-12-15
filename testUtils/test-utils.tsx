@@ -5,10 +5,9 @@ import {configureStore} from '@reduxjs/toolkit';
 import type {PreloadedState} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
 import {RootState} from '../src/store';
-// As a basic setup, import your same slice reducers
+
 import {listModel} from '../src/store/list';
-// This type interface extends the default options for render from RTL, as well
-// as allows the user to specify other things such as initialState, store.
+
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   preloadedState?: PreloadedState<RootState>;
   store?: any;
@@ -26,7 +25,5 @@ export function renderWithProviders(
   function Wrapper({children}: PropsWithChildren<{}>): JSX.Element {
     return <Provider store={store}>{children}</Provider>;
   }
-
-  // Return an object with the store and all of RTL's query functions
   return {store, ...render(ui, {wrapper: Wrapper, ...renderOptions})};
 }
