@@ -19,7 +19,7 @@ import {
   Lexend_700Bold,
   Lexend_800ExtraBold,
 } from '@expo-google-fonts/lexend';
-
+import {renderWithProviders} from '../testUtils/test-utils';
 jest.mock('redux-persist', () => {
   const real = jest.requireActual('redux-persist');
   return {
@@ -60,7 +60,7 @@ it('renders App container correctly', async () => {
   await hook.waitForNextUpdate();
 
   await act(async () => {
-    const tree = await renderer.create(<App />).toJSON();
+    const tree = await renderWithProviders(<App />);
 
     expect(tree).toMatchSnapshot();
   });
