@@ -1,6 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {Dimensions, Image, Text, StyleSheet, View} from 'react-native';
-import {result} from '../store/list';
+import {
+  Dimensions,
+  Image,
+  Text,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+} from 'react-native';
+import {result, RootStackParamList} from '../types';
 import {LinearGradient} from 'expo-linear-gradient';
 import {ColorModifier} from '../utils/colorModifier';
 import {typography} from '../theme';
@@ -10,10 +17,12 @@ const CardMemo = ({
   index,
   pokemon,
   isColored = false,
+  navigation,
 }: {
   index: number;
   pokemon: result;
   isColored: boolean;
+  navigation: RootStackParamList;
 }) => {
   const {h6, h7} = typography;
 
@@ -27,28 +36,38 @@ const CardMemo = ({
     species?.color?.name,
   );
   return (
-    <LinearGradient
-      colors={
-        species ? [mainColor, darkColor] : [colors.lightColor, colors.mainColor]
-      }
-      key={index}
-      style={styles.container}>
-      <Image source={{uri: pokemon.url}} style={styles.image} />
-      <View
-        style={[
-          styles.circle,
-          {
-            backgroundColor: lightColor,
-          },
-        ]}
-      />
-      <Text style={[h6, styles.text]}>{pokemon.name.toLocaleUpperCase()}</Text>
-      {species?.shape && (
-        <View style={[styles.subtitleContainer, {backgroundColor: darkColor}]}>
-          <Text style={[h7, styles.textSubtitle]}>{species.shape.name}</Text>
-        </View>
-      )}
-    </LinearGradient>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate('Details', {pokemon: pokemon, color: mainColor})
+      }>
+      <LinearGradient
+        colors={
+          species
+            ? [mainColor, darkColor]
+            : [colors.lightColor, colors.mainColor]
+        }
+        key={index}
+        style={styles.container}>
+        <Image source={{uri: pokemon.url}} style={styles.image} />
+        <View
+          style={[
+            styles.circle,
+            {
+              backgroundColor: lightColor,
+            },
+          ]}
+        />
+        <Text style={[h6, styles.text]}>
+          {pokemon.name.toLocaleUpperCase()}
+        </Text>
+        {species?.shape && (
+          <View
+            style={[styles.subtitleContainer, {backgroundColor: darkColor}]}>
+            <Text style={[h7, styles.textSubtitle]}>{species.shape.name}</Text>
+          </View>
+        )}
+      </LinearGradient>
+    </TouchableOpacity>
   );
 };
 

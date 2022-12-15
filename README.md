@@ -25,8 +25,6 @@
 
 (Using yarn: `yarn ios` or `yarn android`)
 
-Note: Please read the Setup environments section that is below in this file for more information about the execution scripts.
-
 ## Folder structure
 
 This template follows a very simple project structure:
