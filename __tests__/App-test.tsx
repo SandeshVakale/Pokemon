@@ -18,7 +18,7 @@ jest.mock('redux-persist', () => {
   };
 });
 
-it('renders correctly', async () => {
+it('renders App correctly', async () => {
   await act(async () => {
     renderer.create(<App />).toJSON();
   });
