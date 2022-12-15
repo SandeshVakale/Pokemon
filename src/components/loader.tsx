@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, ActivityIndicator, StyleSheet} from 'react-native';
 import {colors} from '../theme';
 
-const Loader = () => {
+export const Loader = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ActivityIndicator />

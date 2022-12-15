@@ -4,7 +4,7 @@ import {typography, colors} from '../theme';
 import {MaterialIcons} from '@expo/vector-icons';
 import {errorType} from '../types';
 
-const Error = ({error}: {error: errorType}) => {
+export const Error = ({error}: {error: errorType}) => {
   const {h3, h6} = typography;
   const {red} = colors;
   return (

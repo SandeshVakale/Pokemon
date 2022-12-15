@@ -13,8 +13,8 @@ import {SET_PAGE} from '../../store/list';
 import {Card} from '../../components/card';
 import {colors} from '../../theme';
 import {result} from '../../types';
-import Error from '../../components/error';
-import Loader from '../../components/loader';
+import {Error} from '../../components/error';
+import {Loader} from '../../components/loader';
 
 export const List = () => {
   const {listResults, isFetching, error, page} = useSelector(

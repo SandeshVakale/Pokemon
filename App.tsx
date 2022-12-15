@@ -16,7 +16,7 @@ import {PersistGate} from 'redux-persist/lib/integration/react';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import Navigation from './src/navigation';
 import {store, persistor} from './src/store';
-import Loader from './src/components/loader';
+import {Loader} from './src/components/loader';
 export default function App() {
   let [fontsLoaded] = useFonts({
     Lexend_100Thin,
