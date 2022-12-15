@@ -1,11 +1,17 @@
 import React, {useEffect} from 'react';
-import {FlatList, ActivityIndicator, View, StyleSheet, Dimensions} from 'react-native';
+import {
+  FlatList,
+  ActivityIndicator,
+  View,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 import {getPokemons} from '../../services/list';
 import {useSelector} from 'react-redux';
 import {RootState, store} from '../../store';
 import {result, SET_PAGE} from '../../store/list';
-
 import {Card} from '../../components/card';
+import {colors} from '../../theme';
 
 export const List = () => {
   const {listResults, isFetching, error, page} = useSelector(
@@ -50,7 +56,7 @@ export const List = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#fff'},
+  container: {flex: 1, backgroundColor: colors.white},
   listContainer: {alignSelf: 'center'},
   activtyContainer: {
     alignSelf: 'center',

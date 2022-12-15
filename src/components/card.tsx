@@ -5,7 +5,7 @@ import {LinearGradient} from 'expo-linear-gradient';
 import {ColorModifier} from '../utils/colorModifier';
 import {typography} from '../theme';
 import {GetSpeciesDetails} from '../utils/getSpecies';
-
+import {colors} from '../theme';
 const CardMemo = ({
   index,
   pokemon,
@@ -28,7 +28,9 @@ const CardMemo = ({
   );
   return (
     <LinearGradient
-      colors={species ? [mainColor, darkColor] : ['yellow', 'gold']}
+      colors={
+        species ? [mainColor, darkColor] : [colors.lightColor, colors.mainColor]
+      }
       key={index}
       style={styles.container}>
       <Image source={{uri: pokemon.url}} style={styles.image} />
@@ -88,10 +90,10 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   text: {
-    color: 'white',
+    color: colors.white,
   },
   textSubtitle: {
-    color: 'white',
+    color: colors.white,
   },
   subtitleContainer: {
     padding: 5,

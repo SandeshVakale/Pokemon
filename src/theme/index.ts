@@ -1,3 +1,3 @@
 import {typography} from './fonts';
-
-export {typography};
+import {colors} from './colors';
+export {typography, colors};
