@@ -8,3 +8,9 @@ export interface errorType {
   message: string;
   code: string;
 }
+
+export type RootStackParamList = {
+  [x: string]: any;
+  List: undefined;
+  Details: {pokemon: result; color: string};
+};
