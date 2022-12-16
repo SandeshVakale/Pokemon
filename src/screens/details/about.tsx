@@ -7,7 +7,8 @@ import {RootState} from '../../store';
 export const About = (props: {describe: string}) => {
   const {details} = useSelector((state: RootState) => state.detailsModel);
   const {h6, h7} = typography;
-  let text = props.describe.replace('\f', ' ').replace('\n', ' ');
+  let text =
+    props?.describe && props?.describe.replace('\f', ' ').replace('\n', ' ');
   return (
     <ScrollView style={styles.container}>
       <Text style={[h6, styles.text]}>{text}</Text>
