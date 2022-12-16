@@ -31,6 +31,7 @@ export const Details = ({route}: {route: RootStackParamList}) => {
         <Image source={{uri: route.params.pokemon.url}} style={styles.image} />
       </View>
       <View style={styles.bottomContainer}>
+        {/* @ts-ignore:next-line */}
         <Tab describe={route?.params?.describe} />
       </View>
     </View>

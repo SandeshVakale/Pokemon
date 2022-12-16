@@ -1,6 +1,10 @@
 import {api} from '../index';
 import {store} from '../../store';
-import {SET_ERROR_DETAILS, SET_FETCHING_DETAILS, SET_DETAILS} from '../../store/details';
+import {
+  SET_ERROR_DETAILS,
+  SET_FETCHING_DETAILS,
+  SET_DETAILS,
+} from '../../store/details';
 export const getPokemon = async (name: string) => {
   let response;
   try {

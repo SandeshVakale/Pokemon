@@ -9,6 +9,7 @@ import {
 import {typography} from '../../theme';
 import {TabView} from 'react-native-tab-view';
 import {About} from './about';
+import {Stats} from './stats';
 
 export default class Tab extends React.Component {
   state = {
@@ -53,9 +54,10 @@ export default class Tab extends React.Component {
   _renderScene = ({route}: {route: any}) => {
     switch (route.key) {
       case 'first':
+        // @ts-ignore:next-line
         return <About describe={this.props.describe} />;
       case 'second':
-        return <About describe={this.props.describe}/>;
+        return <Stats />;
       default:
         return null;
     }
