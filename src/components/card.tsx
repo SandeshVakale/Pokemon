@@ -30,7 +30,7 @@ const CardMemo = ({
   useEffect(() => {
     isColored &&
       GetSpeciesDetails(pokemon.name)?.then(data => setSpecies(data.data));
-  });
+  }, [isColored, pokemon.name]);
 
   const {lightColor, darkColor, mainColor} = ColorModifier(
     species?.color?.name,
@@ -38,7 +38,11 @@ const CardMemo = ({
   return (
     <TouchableOpacity
       onPress={() =>
-        navigation.navigate('Details', {pokemon: pokemon, color: mainColor})
+        navigation.navigate('Details', {
+          pokemon: pokemon,
+          color: mainColor,
+          describe: species?.flavor_text_entries[0]?.flavor_text,
+        })
       }>
       <LinearGradient
         colors={

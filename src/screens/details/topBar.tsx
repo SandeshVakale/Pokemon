@@ -7,14 +7,8 @@ import {
   StatusBar,
 } from 'react-native';
 import {typography} from '../../theme';
-import {TabView, SceneMap} from 'react-native-tab-view';
-
-const FirstRoute = () => (
-  <View style={[styles.container, {backgroundColor: '#ff4081'}]} />
-);
-const SecondRoute = () => (
-  <View style={[styles.container, {backgroundColor: '#673ab7'}]} />
-);
+import {TabView} from 'react-native-tab-view';
+import {About} from './about';
 
 export default class Tab extends React.Component {
   state = {
@@ -56,11 +50,16 @@ export default class Tab extends React.Component {
       </View>
     );
   };
-
-  _renderScene = SceneMap({
-    first: FirstRoute,
-    second: SecondRoute,
-  });
+  _renderScene = ({route}: {route: any}) => {
+    switch (route.key) {
+      case 'first':
+        return <About describe={this.props.describe} />;
+      case 'second':
+        return <About describe={this.props.describe}/>;
+      default:
+        return null;
+    }
+  };
 
   render() {
     return (
