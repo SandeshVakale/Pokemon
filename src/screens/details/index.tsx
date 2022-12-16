@@ -1,15 +1,18 @@
 import React from 'react';
 import {StyleSheet, View, Image, Dimensions} from 'react-native';
 import {colors} from '../../theme';
-
-export const Details = ({route}) => {
+import {RootStackParamList} from '../../types';
+import Tab from './topBar';
+export const Details = ({route}: {route: RootStackParamList}) => {
   return (
     <View style={styles.container}>
       <View
         style={[styles.upperContainer, {backgroundColor: route.params.color}]}>
         <Image source={{uri: route.params.pokemon.url}} style={styles.image} />
       </View>
-      <View style={styles.bottomContainer} />
+      <View style={styles.bottomContainer}>
+        <Tab />
+      </View>
     </View>
   );
 };
