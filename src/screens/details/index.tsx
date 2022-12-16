@@ -27,9 +27,9 @@ export const Details = ({route}: {route: RootStackParamList}) => {
   return (
     <View style={styles.container}>
       <View
-        style={[styles.upperContainer, {backgroundColor: route.params.color}]}>
-        <Image source={{uri: route.params.pokemon.url}} style={styles.image} />
-      </View>
+        style={[styles.upperContainer, {backgroundColor: route.params.color}]}
+      />
+      <Image source={{uri: route.params.pokemon.url}} style={styles.image} />
       <View style={styles.bottomContainer}>
         {/* @ts-ignore:next-line */}
         <Tab describe={route?.params?.describe} />
@@ -48,6 +48,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
+    position: 'absolute',
+    zIndex: 1000,
+    top: 20,
+    alignSelf: 'center',
     height: 200,
     width: 200,
     resizeMode: 'contain',
@@ -58,6 +62,5 @@ const styles = StyleSheet.create({
     marginTop: -50,
     borderRadius: 35,
     backgroundColor: colors.white,
-    borderColor: 'red',
   },
 });
