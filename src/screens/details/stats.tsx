@@ -13,14 +13,14 @@ import {
 import {colors} from '../../theme';
 import {RootState} from '../../store';
 
-function processData(data, maxima) {
+function processData(data: any, maxima: any) {
   //const maxByGroup = this.getMaxima(data);
-  const makeDataArray = d => {
+  const makeDataArray = (d: any) => {
     return Object.keys(d).map(key => {
       return {x: key, y: d[key] / maxima[key]};
     });
   };
-  return data.map(datum => makeDataArray(datum));
+  return data.map((datum: any) => makeDataArray(datum));
 }
 
 export const Stats = () => {

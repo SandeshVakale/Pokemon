@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import type {StackNavigationProp} from '@react-navigation/stack';
 import {getPokemons} from '../../services/list';
 import {useSelector} from 'react-redux';
 import {RootState, store} from '../../store';
@@ -22,7 +23,8 @@ export const List = () => {
   const {listResults, isFetching, error, page} = useSelector(
     (state: RootState) => state.listModel,
   );
-  const navigation = useNavigation<RootStackParamList>();
+  const navigation =
+    useNavigation<StackNavigationProp<RootStackParamList, 'Details'>>();
   const pageSize = 10;
   useEffect(() => {
     getPokemons(pageSize, (page - 1) * pageSize);

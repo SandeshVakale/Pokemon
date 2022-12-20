@@ -13,6 +13,9 @@ import {ColorModifier} from '../utils/colorModifier';
 import {typography} from '../theme';
 import {GetSpeciesDetails} from '../utils/getSpecies';
 import {colors} from '../theme';
+import {StackNavigationProp} from '@react-navigation/stack';
+
+type Props = StackNavigationProp<RootStackParamList, 'Details'>;
 const CardMemo = ({
   index,
   pokemon,
@@ -22,7 +25,7 @@ const CardMemo = ({
   index: number;
   pokemon: result;
   isColored: boolean;
-  navigation: RootStackParamList;
+  navigation: Props;
 }) => {
   const {h6, h7} = typography;
 

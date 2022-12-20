@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, View, Image, Dimensions} from 'react-native';
 import {useSelector} from 'react-redux';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {getPokemon} from '../../services/details';
 import {colors} from '../../theme';
 import {RootStackParamList} from '../../types';
@@ -8,7 +9,10 @@ import {RootState} from '../../store';
 import Tab from './topBar';
 import {Loader} from '../../components/loader';
 import {Error} from '../../components/error';
-export const Details = ({route}: {route: RootStackParamList}) => {
+
+type Props = NativeStackScreenProps<RootStackParamList, 'Details'>;
+
+export const Details = ({route}: Props) => {
   const {isFetching, error} = useSelector(
     (state: RootState) => state.detailsModel,
   );
