@@ -10,7 +10,6 @@ export interface errorType {
 }
 
 export type RootStackParamList = {
-  [x: string]: any;
   List: undefined;
-  Details: {pokemon: result; color: string};
+  Details: {pokemon: result; color: string; describe: string};
 };
